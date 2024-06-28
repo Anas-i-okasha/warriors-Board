@@ -9,6 +9,11 @@ export const validateUser: ValidationChain[] = [
   body('is_admin').isBoolean().withMessage('is_admin must be a boolean')
 ];
 
+export const loginInfoValidation: ValidationChain[] = [
+    body('email').isString().withMessage('email must be string and required!'),
+    body('password').isString().withMessage('password must be string and required!')
+]
+
 export const handleValidationErrors = (req: Request, res: Response, next: NextFunction) => {
     if (Object.keys(req.body).length == 0)
         return res.status(404).json('Invalid Inputs!!');
