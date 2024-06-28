@@ -14,6 +14,12 @@ export const loginInfoValidation: ValidationChain[] = [
     body('password').isString().withMessage('password must be string and required!')
 ]
 
+export const saveTaskValidation: ValidationChain[] = [
+    body('title').isString().withMessage('title must be string and required!'),
+    body('status').isString().withMessage('status must be string and required!'),
+    body('userId').isNumeric().withMessage('userId is required!')
+]
+
 export const handleValidationErrors = (req: Request, res: Response, next: NextFunction) => {
     if (Object.keys(req.body).length == 0)
         return res.status(404).json('Invalid Inputs!!');

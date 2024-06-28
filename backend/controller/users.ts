@@ -1,14 +1,12 @@
-
 import { Request, Response } from 'express';
 import { Login, User } from '../shared/types';
 import bcrypt from 'bcrypt';
 import { BaseDAO } from '../baseDAO/baseDAO';
-import jwt from 'jsonwebtoken';
 import { AuthGuard } from '../auth/auth';
 
 const baseDAO = new BaseDAO();
-export class Controller {
 
+export class Users {
     async login(req: Request, res: Response) {
         try {
             const userInfo: Login = req.body;
@@ -58,7 +56,7 @@ export class Controller {
         }
     }
 
-    async getAllUsers(req: Request, res: Response) {
+    async getAllUsers(res: Response) {
         try {
             const sql = `SELECT * FROM users WHERE is_deleted = false`;
             const users = await baseDAO.executeQuery(sql, []);
@@ -83,18 +81,5 @@ export class Controller {
         } catch(err) {
             console.error('Error getAllUsers:', err);
         }
-    }
-
-    saveTask(req: Request, res: Response) {
-        try {
-
-        } catch(err) {
-            console.error('Error saveTask:', err);
-            return res.status(500).json({ err: 'Internal server error' });
-        }
-    }
-
-    updateTaskStatus(req: Request, res: Response) {
-
     }
 }

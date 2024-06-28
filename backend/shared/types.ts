@@ -13,12 +13,11 @@ export interface Login {
 }
 
 export interface Task {
-  id: number;
   title: string;
-  description: string;
+  description?: string;
   status: 'queue',
   is_deleted: boolean;
-  user_id: number
+  userId: number
 }
 
 export interface SessionInfo {
