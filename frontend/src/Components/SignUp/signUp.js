@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { BrowserRouter as Link } from 'react-router-dom';
+import Cookies from 'js-cookie';
 import axios from 'axios';
 
 const Signup = () => {
@@ -11,9 +12,13 @@ const Signup = () => {
     const [message, setMessage] = useState('');
 
     const handleSubmit = async (e) => {
+        const token = Cookies.get('live-connected-id');
+        const headers = {
+            'Authorization': `Bearer ${token}`,
+        }
         e.preventDefault();
         try {
-            const response = await axios.post('http://localhost:4000/register', { first_name, last_name, email, password, is_admin });
+            const response = await axios.post('http://localhost:4000/register', { first_name, last_name, email, password, is_admin }, {headers});
             setMessage('Signup successful');
             localStorage.setItem('token', response.data.token);
         } catch (error) {

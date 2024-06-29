@@ -13,8 +13,6 @@ const Login = () => {
             const response = await axios.post('http://localhost:4000/login', { email, password }, { withCredentials: true });
             if (response.data)
                 localStorage.setItem('userInfo', JSON.stringify(response.data.res));
-            console.log( document.cookie);
-            console.log(response)
             setMessage('Login successful');
         } catch (error) {
             setMessage('Login failed');
