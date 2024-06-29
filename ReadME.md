@@ -41,7 +41,7 @@ Create a .env file in the root directory and add the following:
     DB_PASSWORD=0000
     DB_NAME=warriors
     SALT=7
-    JWT_SECRET=your_jwt_secret_key
+    JWT_SECRET=warriors
 
 2.**Run the server:**
     npm run start
@@ -71,7 +71,7 @@ Delete Task
 1. **JWT Authentication:**
 The backend API uses JSON Web Tokens (JWT) for authentication. When a user login in or authenticates, the server generates a JWT that is stored in cookie, then included in subsequent requests from the client. This token is verified on the server side to ensure that requests are coming from authenticated users only.
 
-2.**Authorization:**
+2. **Authorization:**
 Implement authorization checks in the API endpoints to ensure that users can only access and manipulate their own tasks. This can be achieved by checking the user's identity embedded in the JWT against the task ownership or other relevant criteria before allowing CRUD operations.
 
 ## Frontend UI
@@ -83,7 +83,7 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 
  ## Project Structure
 
- 1.**Backend**
+ 1. **Backend**
 
  .
 ├── backend
@@ -106,7 +106,7 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 ├── tsconfig.json
 └── README.md
 
-2.**Frontend**
+2. **Frontend**
 .
 ├── public
 │   ├── index.html

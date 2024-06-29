@@ -42,10 +42,13 @@
 ## Environment Variables
 
 PORT=4000
-DB_HOST=your-database-host
-DB_USER=your-database-user
-DB_PASS=your-database-password
-DB_NAME=your-database-name
+DB_HOST=localhost
+DB_PORT=5432
+DB_USER=postgres
+DB_PASSWORD=0000
+DB_NAME=warriors
+SALT=7
+JWT_SECRET=warriors
 
 
 ## Contributing
