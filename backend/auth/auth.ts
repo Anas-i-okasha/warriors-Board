@@ -34,7 +34,7 @@ export class AuthGuard {
     async handleLoginResponse(loginResult: SessionInfo, req: Request, res: Response) {
         try {
             const token = jwt.sign({ userId: loginResult.id, email: loginResult.email }, process.env.JWT_SECRET as string, { expiresIn: '1d' });
-            res.cookie('session-user-id', token, { httpOnly: true });
+            res.cookie('live-connected-id', token, {maxAge: 7*27*3600*1000});
 
             return res.status(200).send({res: loginResult, err: null});
         } catch(err) {

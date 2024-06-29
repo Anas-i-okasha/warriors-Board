@@ -1,17 +1,24 @@
 import express from "express";
 import session  from 'express-session';
+import cookieParser  from "cookie-parser";
 import { BaseDAO } from "./baseDAO/baseDAO";
 import { AuthGuard } from "./auth/auth";
 import dotenv from "dotenv";
-import  router  from "./route/route";
+import router  from "./route/route";
+import cors  from 'cors';
 dotenv.config();
 const authGuard = new AuthGuard();
+const PORT: number = parseInt(process.env.PORT as string, 10) || 4000;
 
 (async () => {
-    const PORT: number = parseInt(process.env.PORT as string, 10) || 3000;
     await new BaseDAO().connectionDB(); // Ensure the database is connected
     const app = express();
+    app.use(cookieParser());
     app.use(express.json());
+    app.use(cors({
+      origin: 'http://localhost:3000',
+      credentials: true
+  }));
 
     app.use(session({
         secret: 'classified',
