@@ -7,8 +7,11 @@ const fireStore = admin.firestore();
 export class TaskManagment {
     async getUserRelatedTasks(req: Request, res: Response) {
         try {
-            const { userId } = req.body;
-            const snapshot = await fireStore.collection('tasks').where('userId', '==', userId).get();
+            const { userId } = req.params;
+            if (!userId)
+                return {err: 'user not uxist!'};
+
+            const snapshot = await fireStore.collection('tasks').where('userId', '==', +userId).get();
             if (snapshot.empty)
                 return res.send([]);
 
@@ -38,7 +41,7 @@ export class TaskManagment {
             const taskID = req.body.id;
             const updated = await fireStore.collection('tasks').doc(taskID).update({
                 status: req.body.status
-            })
+            });
             res.send(updated);
         } catch(err) {
             console.error('Error updateTaskStatus:', err);
@@ -50,7 +53,7 @@ export class TaskManagment {
         try {
             const taskId = req.params.id;
             const taskInfo = await fireStore.collection('tasks').doc(taskId).get();
-            return res.send(taskInfo);
+            return taskInfo.data();
         } catch(err) {
             console.error('Error getTaskById:', err);
             return res.status(500).json({ err: 'Internal server error' });
@@ -60,7 +63,6 @@ export class TaskManagment {
     async deleteTask(req: Request, res: Response) {
         try {
             const taskId = req.params.id;
-            const userId = req.session.user.id;
            const taskInfo =  await this.getTaskById(req, res);
            if (!taskInfo)
                return res.send({err: 'task not exist!'});

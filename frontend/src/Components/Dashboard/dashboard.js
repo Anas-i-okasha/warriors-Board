@@ -24,13 +24,18 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
+                debugger;
                 const token = Cookies.get('live-connected-id');
                 const headers = {
                     'Authorization': `Bearer ${token}`,
                 };
                 const userInfo = JSON.parse(localStorage.getItem('userInfo'));
+                if(!userInfo)
+                    navigate('/');
+                
                 const userId = userInfo.id; // Replace with actual user ID
                 const response = await axios.get(`http://localhost:4000/getUserRelatedTasks/${userId}`, { headers });
+                debugger;
                 if (response.data?.err)
                     navigate('/');
                 
@@ -82,7 +87,7 @@ const Dashboard = () => {
             'Authorization': `Bearer ${token}`,
         };
 
-        axios.put(`http://localhost:4000/updateTask/${movedTask.id}`, movedTask, { headers })
+        axios.put(`http://localhost:4000/updateTaskStatus/${movedTask.id}`, movedTask, { headers })
             .then(response => console.log(response.data))
             .catch(error => console.error('Error updating task status:', error));
     };
@@ -115,7 +120,7 @@ const Dashboard = () => {
             'Authorization': `Bearer ${token}`,
         };
 
-        axios.put(`http://localhost:4000/updateTask/${updatedTask.id}`, updatedTask, { headers })
+        axios.put(`http://localhost:4000/updateTaskStatus/${updatedTask.id}`, updatedTask, { headers })
             .then(response => console.log(response.data))
             .catch(error => console.error('Error updating task:', error));
     };

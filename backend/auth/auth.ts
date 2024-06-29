@@ -21,7 +21,7 @@ export class AuthGuard {
                 req.session.user = userInfo;
         } catch(err) {
             console.error('loginRequired:', err);
-            return res.status(401).send({err: 'Bad Token!'});
+            return res.send({err: 'Bad Token!'});
         }
         next();
     }

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Cookies from 'js-cookie';
 import axios from 'axios';
 
@@ -82,18 +82,8 @@ const Signup = () => {
                                         required
                                     />
                                 </div>
-                                <div className="form-check form-switch mb-3">
-                                    <input
-                                        className="form-check-input"
-                                        type="checkbox"
-                                        id="isAdmin"
-                                        checked={is_admin}
-                                        onChange={(e) => setIsAdmin(e.target.checked)}
-                                    />
-                                    <label className="form-check-label" htmlFor="isAdmin">Admin</label>
-                                </div>
                                 <button type="submit" className="btn btn-primary w-100">Signup</button>
-                                {/* <div className='link'><Link to='/' > Login? </Link></div> */}
+                                <div className='link'><Link to='/' > Login? </Link></div>
                             </form>
                             {message && <div className="alert alert-info mt-3">{message}</div>}
                         </div>

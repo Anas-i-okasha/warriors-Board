@@ -1,19 +1,26 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { BrowserRouter as Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Login = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [message, setMessage] = useState('');
 
+    const navigate = useNavigate();
     const handleSubmit = async (e) => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:4000/login', { email, password }, { withCredentials: true });
-            if (response.data)
+            debugger;
+            if (response.data?.err)
+                return setMessage('Login failed');
+            
+            if (response.data) {
                 localStorage.setItem('userInfo', JSON.stringify(response.data.res));
-            setMessage('Login successful');
+                navigate('/my-dashboard');
+                return setMessage('Login successful');
+            }
         } catch (error) {
             setMessage('Login failed');
         }
@@ -52,7 +59,7 @@ const Login = () => {
                                     />
                                 </div>
                                 <button type="submit" className="btn btn-primary w-100">Login</button>
-                                {/* <div className='link'><Link to='/signup' > Create new account? </Link></div>  */}
+                                <div className='link'><Link to='/signup' > Create new account? </Link></div> 
                             </form>
                             {message && <div className="alert alert-info mt-3">{message}</div>}
                         </div>
