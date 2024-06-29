@@ -8,8 +8,8 @@ export class AuthGuard {
 
     async loginRequired(req: Request, res: Response, next: NextFunction) {
         const [type, token] = req.headers.authorization?.split(' ') ?? [];
-        if (!token)
-            return res.status(401).send({err: '401 Bad Authorization!'});
+        if (!token || token == 'undefined')
+            return res.send({err: 'Bad Authorization'});
 
         try {
             const payload = new AuthGuard().verifyJwt(token);

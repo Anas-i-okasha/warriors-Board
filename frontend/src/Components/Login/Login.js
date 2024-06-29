@@ -12,7 +12,6 @@ const Login = () => {
         e.preventDefault();
         try {
             const response = await axios.post('http://localhost:4000/login', { email, password }, { withCredentials: true });
-            debugger;
             if (response.data?.err)
                 return setMessage('Login failed');
             

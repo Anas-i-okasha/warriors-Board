@@ -24,7 +24,6 @@ const Dashboard = () => {
     useEffect(() => {
         const fetchTasks = async () => {
             try {
-                debugger;
                 const token = Cookies.get('live-connected-id');
                 const headers = {
                     'Authorization': `Bearer ${token}`,
@@ -36,8 +35,8 @@ const Dashboard = () => {
                 const userId = userInfo.id; // Replace with actual user ID
                 const response = await axios.get(`http://localhost:4000/getUserRelatedTasks/${userId}`, { headers });
                 debugger;
-                if (response.data?.err)
-                    navigate('/');
+                if (response.data?.err == "Bad Authorization")
+                    return navigate('/');
                 
                 const userTasks = response.data;
                 const formattedTasks = {
