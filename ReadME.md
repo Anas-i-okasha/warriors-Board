@@ -34,6 +34,7 @@ This project is a full-stack Task Management System developed using Node.js with
 ## Usage 
 1. **Set up environment variables:**
 Create a .env file in the root directory and add the following:
+```
     PORT=4000
     DB_HOST=localhost
     DB_PORT=5432
@@ -42,7 +43,7 @@ Create a .env file in the root directory and add the following:
     DB_NAME=warriors
     SALT=7
     JWT_SECRET=warriors
-
+```
 2.**Run the server:**
     npm run start
 
