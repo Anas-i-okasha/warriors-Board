@@ -85,22 +85,22 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 
  1. **Backend**
 
- .
+.
 ├── backend
-│   ├── controllers
-│   │   └── taskManagment.ts
-│   │   └── users.ts
-│   ├── baseDAO
-│   │   └── baseDAO.ts
-│   │   └── firebase-key.json
-│   ├── routes
-│   │   └── route.ts
-│   ├── auth
-│   │   └── auth.ts
-│   ├── shared
-│   │   └── validation.ts
-│   │   └── types.ts
-│   └── app.ts
+│ ├── controllers
+│ │ └── taskManagment.ts
+│ │ └── users.ts
+│ ├── baseDAO
+│ │ └── baseDAO.ts
+│ │ └── firebase-key.json
+│ ├── routes
+│ │ └── route.ts
+│ ├── auth
+│ │ └── auth.ts
+│ ├── shared
+│ │ └── validation.ts
+│ │ └── types.ts
+│ └── app.ts
 ├── .gitignore
 ├── package.json
 ├── tsconfig.json
@@ -109,20 +109,20 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 2. **Frontend**
 .
 ├── public
-│   ├── index.html
-│   └── ...
-├── src  
-│   ├── components
-│   │   └── Login
-│   │   └── SignUp
-│   │   └── DashBoard
-│   │   └── Edit Task
-│   │   └── Add Task
-│   ├── App.js
-│   ├── index.js
-│   ├── routes.js
-│   └── styles
-│       └── App.css
+│ ├── index.html
+│ └── ...
+├── src
+│ ├── components
+│ │ └── Login
+│ │ └── SignUp
+│ │ └── DashBoard
+│ │ └── Edit Task
+│ │ └── Add Task
+│ ├── App.js
+│ ├── index.js
+│ ├── routes.js
+│ └── styles
+│ └── App.css
 ├── .gitignore
 ├── package.json
 ├── README.md

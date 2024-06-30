@@ -50,6 +50,8 @@ DB_NAME=warriors
 SALT=7
 JWT_SECRET=warriors
 
+**Please check firebase authontication on your email**
+
 
 ## Contributing
 1-Fork the repository.
