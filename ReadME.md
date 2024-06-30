@@ -106,8 +106,11 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 ├── package.json
 ├── tsconfig.json
 └── README.md
+  ```
 
 2. **Frontend**
+
+   ```bash
 .
 ├── public
 │ ├── index.html
