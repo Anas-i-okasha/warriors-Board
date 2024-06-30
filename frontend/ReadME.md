@@ -16,6 +16,7 @@
 
 ## Project Structure
 
+```bash
 .
 ├── public
 │   ├── index.html
@@ -35,6 +36,7 @@
 ├── .gitignore
 ├── package.json
 ├── README.md
+```
 
 ## Contributing
 1-Fork the repository.
