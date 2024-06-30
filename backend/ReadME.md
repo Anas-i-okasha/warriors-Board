@@ -17,6 +17,8 @@
 - npm run start
 
 ## Project Structure
+
+```bash
 .
 ├── backend
 │   ├── controllers
@@ -37,7 +39,7 @@
 ├── package.json
 ├── tsconfig.json
 └── README.md
-
+  ```
 
 ## Environment Variables
 
