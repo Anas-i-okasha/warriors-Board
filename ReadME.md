@@ -85,6 +85,7 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 
  1. **Backend**
 
+  ```bash
 .
 ├── backend
 │ ├── controllers
@@ -126,3 +127,4 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 ├── .gitignore
 ├── package.json
 ├── README.md
+  ```
