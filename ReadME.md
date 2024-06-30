@@ -110,7 +110,7 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 
 2. **Frontend**
 
-   ```bash
+```bash
 .
 ├── public
 │ ├── index.html
@@ -129,5 +129,5 @@ Implement authorization checks in the API endpoints to ensure that users can onl
 │ └── App.css
 ├── .gitignore
 ├── package.json
-├── README.md
+└── README.md
   ```
