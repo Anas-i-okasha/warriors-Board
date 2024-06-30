@@ -42,7 +42,7 @@
   ```
 
 ## Environment Variables
-
+```bash
 PORT=4000
 DB_HOST=localhost
 DB_PORT=5432
@@ -51,6 +51,7 @@ DB_PASSWORD=0000
 DB_NAME=warriors
 SALT=7
 JWT_SECRET=warriors
+```
 
 **Please check firebase authontication on your email**
 
