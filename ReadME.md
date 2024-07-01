@@ -14,8 +14,6 @@ This project is a full-stack Task Management System developed using Node.js with
   - [Usage](#usage-1)
   - [Environment Variables](#environment-variables-1)
 - [Project Structure](#project-structure)
-- [Contributing](#contributing)
-- [License](#license)
 
 ## Installation
 
