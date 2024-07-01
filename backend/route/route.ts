@@ -14,11 +14,11 @@ router.post('/login', loginInfoValidation, handleValidationErrors, (req: Request
 router.post('/register', validateUser, handleValidationErrors, (req: Request, res: Response) => users.register(req, res));
 
 //Auth midleware
-router.get('/getAllUsers', authGuard.loginRequired, (req: Request, res: Response) => users.getAllUsers(res));
-router.get('/getUserRelatedTasks/:userId', authGuard.loginRequired, (req: Request, res: Response) => taskManagment.getUserRelatedTasks(req, res));
+router.get('/getAllUsers', authGuard.loginRequired, async (req: Request, res: Response) => await users.getAllUsers(res));
+router.get('/getUserRelatedTasks/:userId', authGuard.loginRequired, async (req: Request, res: Response) => await taskManagment.getUserRelatedTasks(req, res));
 
-router.post('/createTask', authGuard.loginRequired, saveTaskValidation, handleValidationErrors, (req: Request, res: Response) => taskManagment.saveTask(req, res));
-router.put('/updateTaskStatus/:id', authGuard.loginRequired, (req: Request, res: Response) => taskManagment.updateTaskStatus(req, res));
-router.delete('/deleteTask/:id', authGuard.loginRequired, (req: Request, res: Response) => taskManagment.deleteTask(req, res));
+router.post('/createTask', authGuard.loginRequired, saveTaskValidation, handleValidationErrors, async (req: Request, res: Response) => await taskManagment.saveTask(req, res));
+router.put('/updateTaskStatus/:id', authGuard.loginRequired, async (req: Request, res: Response) => await taskManagment.updateTaskStatus(req, res));
+router.delete('/deleteTask/:id', authGuard.loginRequired, async (req: Request, res: Response) => await taskManagment.deleteTask(req, res));
 
 export default router;

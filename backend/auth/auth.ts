@@ -16,12 +16,9 @@ export class AuthGuard {
             const userInfo = await users.findUserById(payload.userId);
             if(!userInfo)
                 return res.status(404).send({res: null, err: 'user not exist'});
-
-            if (!req.session.user)
-                req.session.user = userInfo;
         } catch(err) {
             console.error('loginRequired:', err);
-            return res.send({err: 'Bad Token!'});
+            return res.send({err: 'Bad Authorization'});
         }
         next();
     }
