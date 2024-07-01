@@ -34,7 +34,6 @@ const Dashboard = () => {
                 
                 const userId = userInfo.id; // Replace with actual user ID
                 const response = await axios.get(`http://localhost:4000/getUserRelatedTasks/${userId}`, { headers });
-                debugger;
                 if (response.data?.err == "Bad Authorization")
                     return navigate('/');
                 
@@ -85,7 +84,6 @@ const Dashboard = () => {
         const headers = {
             'Authorization': `Bearer ${token}`,
         };
-
         axios.put(`http://localhost:4000/updateTaskStatus/${movedTask.id}`, movedTask, { headers })
             .then(response => console.log(response.data))
             .catch(error => console.error('Error updating task status:', error));
